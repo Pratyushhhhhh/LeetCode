@@ -1,5 +1,20 @@
 class Solution {
 public:
+    //patience sorting 
+    int lengthOfLIS(vector<int>& nums) {
+       int n=nums.size();
+       vector<int> sorted;
+       for(int i=0;i<n;i++){
+        auto it = lower_bound(begin(sorted),end(sorted), nums[i]);
+        if(it==end(sorted))
+            sorted.push_back(nums[i]);
+        else
+            *it=nums[i];
+       }
+    return sorted.size();
+    }
+
+    //MEMOIZATION
     // int n;
     // int t[2501][2501];
     // int solve(vector<int>&nums, int i,int p){
@@ -22,22 +37,22 @@ public:
     //     n=nums.size();
     //     memset(t,-1,sizeof(t));
     //     return solve(nums,0,-1);
-    // } 
+    // }
 
     //BOTTOM UP
-     int lengthOfLIS(vector<int>& nums) {
-        int n=nums.size();
-        int maxLIS=1;
-        vector<int>t(n,1);
+    //  int lengthOfLIS(vector<int>& nums) {
+    //     int n=nums.size();
+    //     int maxLIS=1;
+    //     vector<int>t(n,1);
 
-        for(int i=0;i<n;i++){
-            for(int j=0;j<i;j++){
-                if(nums[j]<nums[i]){
-                    t[i]=max(t[i],t[j]+1);
-                    maxLIS=max(maxLIS,t[i]);
-                }
-            }
-        }
-    return maxLIS;
-     }
+    //     for(int i=0;i<n;i++){
+    //         for(int j=0;j<i;j++){
+    //             if(nums[j]<nums[i]){
+    //                 t[i]=max(t[i],t[j]+1);
+    //                 maxLIS=max(maxLIS,t[i]);
+    //             }
+    //         }
+    //     }
+    // return maxLIS;
+    //  }
 };
