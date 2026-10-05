@@ -28,3 +28,34 @@ public:
         return result;
     }
 };
+
+//Python code 
+// class Solution(object):
+//     def reverseWords(self, s):
+//         """
+//         :type s: str
+//         :rtype: str
+//         """
+//         words = s.split()
+//         words.reverse()
+//         return " ".join(words)
+//         # w = ""
+//         # stack = []
+//         # s+=" "
+//         # for i in range(len(s)):
+//         #     if s[i] == " ":
+//         #         if w!="":
+//         #             stack.append(w)
+//         #             w=""
+//         #     else:
+//         #         w+=s[i]
+        
+//         # result=""
+
+//         # while stack:
+//         #     temp = stack.pop()
+//         #     result += temp + " "
+        
+//         # if result!="":
+//         #     return result[:-1]
+//         # return s
